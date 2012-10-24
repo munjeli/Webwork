@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Balls in a Box</title>
+<!--these two libraries can be had at http://jquery.com and http://jqueryui.com 
+	They are necessary to run the snippet here
+	color palette this page is [slow motion] by tvr at http://colourlovers.com-->
+	<link rel="stylesheet" href="css/custom-theme" type ='text/css"'/>
+	<link href='http://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
+	
+    <script src="js/jquery-ui-1.8.24.custom.min.js" type='text/javascript'></script>
+    <script src="js/jquery-1.8.2.min.js" type='text/javascript'></script>
+    
+   
+
+<style type='text/css'>
+	html, body {
+		height:100%; 
+		margin:0; 
+		padding:0;
+		background: #F7803C; 
+		}
+		
+	#main{
+		width: 1024px;
+		margin-left: auto;
+		margin-right: auto;
+		background: #F8E4C1;
+		height: 100%;
+		font-family: 'Anonymous Pro', sans-serif;
+	}
+	
+	.instructions{
+		padding-top: 30px;
+		font-size: 1.3em;
+		margin: 0 0 20px 252px;
+		width: 450px;
+	}
+	
+	/*the selectable widget has to be custom styled, it doesn't fly with the themes*/
+	#selectable .ui-state-default { background: transparent; border: none;}
+	#selectable .ui-selecting { background: #000000; }
+    #selectable .ui-selected { background: #000000; }
+    #selectable { list-style-type: none; margin: 0 0 0 252px; padding: 0; width: 450px; }
+    #selectable li { margin: 3px; padding: 1px; float: left; width: 45px; height: 45px; font-size: 1em; text-align: center; }
+	
+</style>
+<script type="text/javascript">
+ $(document).ready(function() {
+ 		 //place the selectable grid
+ 	 	 $("#selectable").selectable();
+ 	 	 
+ });
+</script>
+</head>
+
+<body>
+	<div id='main'>
+		<div class='instructions'>Click and drag to select multiple; cntrl-Click to select multiple individuals. Click on the boxes below to deposit the selections.			
+		</div>
+		
+		<ol id="selectable">
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
+		</ol>
+ 
+		
+	</div>
+
+</body>
+
+</html>
