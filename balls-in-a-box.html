@@ -17,34 +17,31 @@
  	 	$("#selectable").selectable();
  	 	
  	 	//no balls 
- 	 	var balls = 0;
+ 	 	
  	 	
  	 	//when you click on a box, it counts the balls, and puts the count in the box. 
  	 	$(".box").click( function(){
+ 	 		var balls = 0;
+ 	 		var ballCount = 0;
  	 		//which box?
  	 		var boxId = $(this).attr('id');
  	 		
- 	 		//look for your balls
- 	 		var newBalls = parseInt($('#' + boxId).html());
+ 	 		//look for your balls	 		
+ 	 		//var newBalls = parseInt($('#' + boxId).html());
+ 	 		//alert(newBalls);
  	 		
  	 		//count your balls
- 	 		var ballCount= $('.ui-selected').length;
-			alert(ballCount);
- 	 					 		
- 	 		if(newBalls > 0){
- 	 			balls = newBalls + ballCount;
- 	 		}
- 	 		else{
- 	 			balls = ballCount;
- 	 		}
+ 	 		ballCount = $('li.ui-selected').length;
+ 	 		balls = balls + ballCount;
  	 		
  	 		//tell me about it.	 
  	 		$('#'+ boxId).html(balls);	
  	 		 
- 	 		//you've spent your balls; they won't come back until you refresh. 
- 	 		$('.ui-selected').hide();
- 	 		$('.ui-selected').removeClass('.ui-selected');
- 	 		balls = 0;		
+ 	 		//you've spent your balls; they won't come back until you refresh.
+ 	 		balls = 0; 
+ 	 		$('li.ui-selected').hide();
+ 	 		$('li.ui-selected').removeClass('li.ui-selected');
+ 	 		
  	 	});
 	 	 	 
 	 });
