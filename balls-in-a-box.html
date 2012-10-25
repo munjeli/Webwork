@@ -6,14 +6,46 @@
 	They are necessary to run the snippet here
 	color palette this page is [slow motion] by tvr at http://colourlovers.com-->
 	<link rel="stylesheet" href="css/custom-theme/elib.css" type ='text/css"'/>
-	<link href='http://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css'>
-	
-		<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
-		<script type="text/javascript" src="jquery-ui-1.8.24.custom.min.js"></script>
+	<!--never give in to Arial or Times-->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat+Alternates' rel='stylesheet' type='text/css'>
+
+	<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="jquery-ui-1.8.24.custom.min.js"></script>
     <script type="text/javascript">
  	$(document).ready(function() {
  		 //place the selectable grid
  	 	$("#selectable").selectable();
+ 	 	
+ 	 	//no balls 
+ 	 	var balls = 0;
+ 	 	
+ 	 	//when you click on a box, it counts the balls, and puts the count in the box. 
+ 	 	$(".box").click( function(){
+ 	 		//which box?
+ 	 		var boxId = $(this).attr('id');
+ 	 		
+ 	 		//look for your balls
+ 	 		var newBalls = parseInt($('#' + boxId).html());
+ 	 		
+ 	 		//count your balls
+ 	 		var ballCount= $('.ui-selected').length;
+			alert(ballCount);
+ 	 					 		
+ 	 		if(newBalls > 0){
+ 	 			balls = newBalls + ballCount;
+ 	 		}
+ 	 		else{
+ 	 			balls = ballCount;
+ 	 		}
+ 	 		
+ 	 		//tell me about it.	 
+ 	 		$('#'+ boxId).html(balls);	
+ 	 		 
+ 	 		//you've spent your balls; they won't come back until you refresh. 
+ 	 		$('.ui-selected').hide();
+ 	 		$('.ui-selected').removeClass('.ui-selected');
+ 	 		balls = 0;		
+ 	 	});
 	 	 	 
 	 });
 	</script>
@@ -34,13 +66,14 @@
 		margin-right: auto;
 		background: #F8E4C1;
 		height: 100%;
-		font-family: 'Anonymous Pro', sans-serif;
+		color: #2E0D23;
+		font-family: 'Monserrat Alternates', sans-serif;
 	}
 	
 	.instructions{
 		padding-top: 30px;
-		font-size: 1.5em;
-		margin-right: 30px;
+		font-size: 1.3em;
+		margin-right: 50px;
 		width: 500px;
 		float: right; 
 		
@@ -52,15 +85,34 @@
     #selectable .ui-selected { background: #2E0D23; }
     #selectable { list-style-type: none; margin: 0; padding: 0; width: 450px; }
     #selectable li { margin: 3px; padding: 1px; float: left; width: 45px; height: 45px; font-size: 1em; text-align: center; }
+    
+    .box{
+    	width: 130px;
+    	height: 130px;
+    	margin-right: 20px;
+    	background: #2E0D23;
+    	float: left;
+    	text-align: center;
+    	font-size: 2em;
+    	font-style: bold;
+    	color: #F8E4C1;
+    }
    
 </style>
 </head>
 
 <body>
 	<div id='main'>
+		<!-- this the div with the instructions and the boxes to fill-->
 		<div class='instructions'>Click and drag to select multiple; cntrl-Click (command-Click on OSX) to select multiple individuals. Click on the boxes below to deposit the selections.			
-		</div>
+			<div style='float: left; margin-top: 40px;'>
+				<div class='box' style='display: inline;' id = '1'></div>
+				<div class='box' id='2'></div>
+				<div class='box' id='3'></div>				
+			</div>
 		
+		</div>
+		<!--I've got balls for a woman programmer, right? Yuk yuk. Of course this could be dynamic. No balls until you need them.That's how I roll.-->
 		<ol id="selectable">
 		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
 		    <li class="ui-state-default"><img src="orange-ball.png" /></li>
