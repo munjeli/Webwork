@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Balls in a Box</title>
+<title>A Poland Scheme</title>
 <!--these two libraries can be had at http://jquery.com and http://jqueryui.com 
 	They are necessary to run the snippet here
 	color palette this page is [slow motion] by tvr at http://colourlovers.com-->
-	<link rel="stylesheet" href="css/custom-theme/elib.css" type ='text/css"'/>
+	<link rel="stylesheet" href="css/custom-theme/elib.css" type ='text/css'/>
 	<!--never give in to Arial or Times-->
 	<link href='http://fonts.googleapis.com/css?family=Montserrat+Alternates' rel='stylesheet' type='text/css'>
 
-	<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
-	<script type="text/javascript" src="jquery-ui-1.8.24.custom.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
     <script type="text/javascript">
  	$(document).ready(function() {
  		 //place the selectable grid
@@ -21,14 +21,23 @@
  	 	
  	 	//when you click on a box, it counts the balls, and puts the count in the box. 
  	 	$(".box").click( function(){
- 	 		var balls = 0;
+ 	 		alert('works');
+ 	 		var balls;
  	 		var ballCount = 0;
  	 		//which box?
  	 		var boxId = $(this).attr('id');
+ 	 		var ballsnow = $('#' + boxId).html();
  	 		
- 	 		//look for your balls	 		
- 	 		//var newBalls = parseInt($('#' + boxId).html());
- 	 		//alert(newBalls);
+ 	 		
+ 	 		//look for your balls
+ 	 		if($('#' + boxId).html() != '')
+	 	 		{		
+	 	 			balls = parseInt($('#' + boxId).html());	 	 			
+	 	 		}
+	 	 	//no balls	
+	 	 	else{ 
+	 	 		balls = 0; 
+	 	 	}
  	 		
  	 		//count your balls
  	 		ballCount = $('li.ui-selected').length;
@@ -38,7 +47,8 @@
  	 		$('#'+ boxId).html(balls);	
  	 		 
  	 		//you've spent your balls; they won't come back until you refresh.
- 	 		balls = 0; 
+ 	 		balls = 0;
+ 	 		ballCount = 0;
  	 		$('li.ui-selected').hide();
  	 		$('li.ui-selected').removeClass('li.ui-selected');
  	 		

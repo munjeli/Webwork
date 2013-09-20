@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>democracule</title>
+		<meta name="description" content="" />
+		<meta name="author" content="Ele Munjeli" />
+			
+		<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+	 	<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+		
+		<style>
+			#democraDiv{
+				position: relative; 
+				height: 500px;
+				width: 500px;
+				border: 1px solid #000;
+			}
+			
+			.triggerDiv{
+				cursor: pointer;
+			}
+			
+			#d-top{
+				position: absolute;
+				top: 5px;
+				left: 175px;
+				height: 150px;
+				width: 150px;
+				
+			}
+			
+			#d-right{
+				position: absolute;
+				top: 340px;
+				left: 345px;
+				height: 150px;
+				width: 150px;
+			}
+			
+			#d-left{
+				position: absolute;
+				top: 340px;
+				left: 5px;
+				height: 150px;
+				width: 150px;
+				
+			}
+			
+			#d-center{
+				position: absolute;
+				top: 205px;
+				left: 175px;
+				height: 150px;
+				width: 150px;
+			}
+			
+		</style>
+		<script type='text/javascript'>
+		$(document).ready(function(){
+				
+				/*I'm just into the object nowadays*/
+				var trigDiv = $('.triggerDiv');
+				
+				/*the names of the triggerDivs*/
+				var divNames = ['top', 'right', 'left', 'center'];
+				 
+				/*when we begin, all but off are hidden*/ 
+				$('#d-topImg').hide();
+				$("#d-rightImg").hide();
+				$("#d-leftImg").hide();
+				$("#d-centerImg").hide();
+							
+				trigDiv.mouseenter(function(){
+					
+					var triggered = $(this).attr('id');
+					var posArr;
+					
+					switch(triggered){
+						case 'top': 
+							posArr = [[250, 5, 125], [65,420,374], [104,296,24], [128, 267,177]];
+							break;
+						case 'right':
+							posArr = [[160,45,43],[255,238,240],[122,260,65],[144,37,305]];
+							break;
+						case 'left':
+							posArr = [[91,103,27],[195,138,314],[280, 213,8],[135,44,163]];
+							break;
+						case 'center':
+							posArr = [[105, 29, 17], [72, 112,433], [100, 390,33], [270, 136, 90]];
+							break;
+					
+						
+					}
+					
+					divChange(divNames, posArr);
+					
+					/*get the id of the triggerDiv and make it into the imgDiv id*/
+					var triggeredImg = triggered + 'Img';
+										
+					/*hide all the triggerDivs except the one you rolled over*/
+					if( $('.imgDiv').attr('id') != triggeredImg){
+						$('.imgDiv').hide();
+					}
+					
+					$('#' + triggeredImg).show();
+	
+												
+				});
+				
+				$('#democraDiv').mouseleave( function(){
+					
+					$('.imgDiv').hide();	
+					$('#d-offImg').show();
+					divChange(divNames, [[150, 5, 175],[150, 340, 345], [150, 340, 5],[150,205, 175]]);
+				});
+				
+				function divChange(divNames, divPos){
+					
+					for(var i = 0; i < divPos.length; i++){
+						$('#'+ divNames[i]).css('width', divPos[i][0]).css('height',divPos[i][0]).css('top', divPos[i][1]).css('left', divPos[i][2]);
+						
+					}
+					
+				}
+							
+		});			
+		</script>
+
+
+	</head>
+
+	<body>
+		<div>
+			<header>
+				<h1>democracule</h1>
+			</header>
+
+			<div id='democraDiv'>	
+				<!--within the democraDiv are the images named for the biggest circle-->
+				<div class='imgDiv' id='d-offImg'><img src='http://democracylab.org/wp-content/themes/coda/images/off.jpg'/></div>
+				<div class='imgDiv' id='d-topImg'><img src='http://democracylab.org/wp-content/themes/coda/images/top.jpg'/></div>
+				<div class='imgDiv' id='d-rightImg'><img src='http://democracylab.org/wp-content/themes/coda/images/right.jpg'/></div>
+				<div class='imgDiv' id='d-leftImg'><img src='http://democracylab.org/wp-content/themes/coda/images/left.jpg'/></div>
+				<div class='imgDiv' id='d-centerImg'><img src='http://democracylab.org/wp-content/themes/coda/images/center.jpg'/></div>
+				
+				<a href='http://democracylab.org'>
+					<div class='triggerDiv' id='d-top' ></div>
+				</a>
+				<a href='http://democracylab.org'>
+					<div class='triggerDiv' id='d-right'></div>
+				</a>
+				<a href='http://democracylab.org'>
+					<div class='triggerDiv' id='d-left'></div>
+				</a>
+				<a href='http://democracylab.org'>
+					<div class='triggerDiv' id='d-center'></div>
+				</a>
+			</div>
+			
+
+			<footer>
+				<p>
+					&copy; Copyright  by EleMunjeli
+				</p>
+			</footer>
+		</div>
+	</body>
+</html>
